@@ -9,4 +9,4 @@ function callToSum() {
     console.log(doSum(100));
 }
 setTimeout(callToSum, 1000);
-console.log("callToSum is already called");
+console.log("fucking callToSum is already called");
