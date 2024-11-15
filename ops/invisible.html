@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Capturing</title>
+</head>
+
+<body style="background-color: rgb(27, 25, 25); color: aliceblue;">
+
+    <h1>My Favorite places</h1>
+    <div>
+        <ul id="images">
+            <li><img width="200px" src="https://images.pexels.com/photos/1198507/pexels-photo-1198507.jpeg" id="farm"
+                    alt="farm not loaded"></li>
+            <li><img width="200px" src="https://images.pexels.com/photos/1101140/pexels-photo-1101140.jpeg" id="house"
+                    alt="house not loaded"></li>
+            <li><img width="200px" src="https://images.pexels.com/photos/1101146/pexels-photo-1101146.jpeg" id="bridge"
+                    alt="bridge not loaded"></li>
+            <li><img width="200px" src="https://images.pexels.com/photos/434549/pexels-photo-434549.jpeg" id="snow"
+                    alt="snow not loaded"></li>
+            <li><a style="color: aliceblue;" id="telegram" href="web.telegram.org"> telegram </a></li>
+        </ul>
+    </div>
+    <script>
+        document.getElementById('images').addEventListener('click', function (e) {
+            // console.log(e.layerX);
+            console.log(e.target.tagName);
+
+            if (e.target.tagName == 'IMG') {
+                console.log(e.target.id);
+                let removeIt = e.target.parentNode;
+                removeIt.remove();
+                // removeIt.parentNode.removeChild(removeIt);
+            }
+
+        }, false)
+
+    </script>
+</body>
+
+</html>
