@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rocket launch control</title>
+</head>
+
+<body>
+    <h1>
+        click Start to launch
+    </h1>
+    <h2>
+        current velocity is: nill
+    </h2>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <script>
+        const parent = function () {
+            secondMessage()
+            stopIt();
+        }
+
+        const firstMessage = function () {
+            document.querySelector('h1').innerHTML = "ignition will start in 3 seconds...";
+            setTimeout(parent, 3000);
+        }
+
+        const secondMessage = function () {
+            document.querySelector('h1').innerHTML = "ignition success, rocket is flying right now."
+
+        }
+
+        let velocity = 700;
+
+        const printVelocity = function () {
+            document.querySelector('h2').innerHTML = `current Velocity is: ${velocity}`;
+            velocity += 3;
+        }
+
+        document.querySelector('#start').addEventListener('click', function (e) {
+            firstMessage();
+            let removeIt = e.target;
+            removeIt.remove();
+        })
+        function stopIt() {
+            const timer = setInterval(printVelocity, 250);
+            document.querySelector('#stop').addEventListener('click', function () {
+                clearInterval(timer);
+            })
+        }
+    </script>
+</body>
+
+</html>
+
+<!--finally did by own thinking-->
