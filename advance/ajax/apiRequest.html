@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guhub user APIs</title>
+</head>
+
+<body style="background-color: #646363;">
+
+    <div>
+        <center>
+            <h2>github user info using APIs</h2>
+        </center>
+
+        <h3 id="print"></h3>
+    </div>
+
+    <div>
+        <img width="250" id="IMG" src="" alt="">
+    </div>
+    <div><button id="start">print Data</button></div>
+
+
+
+    <script>
+        let data;
+        const requestURL = "https://api.github.com/users/developerRohitDudi"
+        let apiFunc = new XMLHttpRequest();
+        apiFunc.open('GET', requestURL);
+        apiFunc.onreadystatechange = function () {
+            console.log(apiFunc.readyState);
+            if (apiFunc.readyState == 4) {
+                data = JSON.parse(this.responseText)
+                console.log(data);
+                console.log(`follower = `, data.followers);
+            }
+        }
+        apiFunc.send();
+
+        function printData() {
+            document.getElementById('print').innerHTML = `the user has ${data.followers} followers`
+            document.getElementById('IMG').src = data.avatar_url;
+        }
+
+        document.getElementById('start').addEventListener('click', (e) => {
+            printData();
+        })
+
+    </script>
+
+</body>
+
+</html>
