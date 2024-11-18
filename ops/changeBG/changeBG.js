@@ -7,16 +7,20 @@ const randomColor = function () {
     }
     return color;
 }
-let timer;
+let interval;
 const startMe = function () {
-    timer = setInterval(changeColor, 500);
+    if (!interval) {
+        interval = setInterval(changeColor, 500);
+    }
+
     function changeColor() {
         document.body.style.backgroundColor = randomColor();
     };
 
 }
 function stopMe() {
-    clearInterval(timer);
+    clearInterval(interval);
+    interval = null;
 }
 document.querySelector('#start').addEventListener('click', startMe)
 document.querySelector('#stop').addEventListener('click', stopMe)
