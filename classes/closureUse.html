@@ -1,0 +1,30 @@
+<!--real practical example of using closure -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <button id="green">Green</button>
+        <button id="purple">purple</button>
+    </div>
+
+</body>
+<script>
+
+    function changeColor(color) {
+        return function () {
+            document.body.style.backgroundColor = `${color}`;
+        }
+    } // returning the inner function with lexical scope of chnageColor func
+
+    document.getElementById("green").onclick = changeColor('green')
+    document.getElementById("purple").onclick = changeColor('purple')
+</script>
+
+</html>

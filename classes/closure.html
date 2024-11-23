@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure </title>
+</head>
+
+<body>
+    <h2>lexical scope & Closure</h2>
+</body>
+<script>
+    function myfunc() {
+        let data = "criticalData";
+        function inner() {
+            console.log("data is: ", data);
+        }
+        return inner();
+    }
+    const funcWithOuterScope = myfunc();
+    funcWithOuterScope();
+</script>
+
+</html>
