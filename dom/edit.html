@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit & remove Optimized</title>
+</head>
+
+<body>
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    function addLanguage(nameOfLang) {
+        const li = document.createElement('li')
+        li.innerHTML = `${nameOfLang}`
+        document.querySelector(".language").appendChild(li)
+    }
+    addLanguage("C++")
+    // Optimized approch
+    function optiAddLang(nameOfLang) {
+        const li = document.createElement('li')
+        li.appendChild(document.createTextNode(nameOfLang))
+        document.querySelector('.language').appendChild(li)
+    }
+    optiAddLang("Python")
+    optiAddLang("GoLang")
+    optiAddLang("Rust")
+
+    //Edit
+    // const secondLi = document.querySelector("li:nth-child(2)")
+    const ul = document.querySelector(".language") // better
+    const newLi = document.createElement("li")
+    newLi.textContent = "Ruby";
+    ul.children[1].replaceWith(newLi)
+
+
+    //Edit
+    const ulOfLi = document.querySelector(".language")
+    ulOfLi.children[0].outerHTML = "<li> java</li>"   //nice method
+
+    //remove
+    const languages = document.querySelector(".language")
+    languages.children[4].remove()
+</script>
+
+</html>
