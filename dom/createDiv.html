@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating Elements</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    const container = document.createElement('div')
+    container.style.display = "flex"
+    container.style.flexDirection = "column"
+    container.style.justifyContent = "center"
+    container.style.alignItems = "center"
+
+    function createDiv() {
+        const div = document.createElement('div')
+        div.className = "mainDiv"
+        div.id = Math.round(Math.random() * 10 + 1)
+        div.style.backgroundColor = "green"
+        div.style.color = "white"
+        div.style.padding = "20px"
+        div.style.marginTop = "50px"
+        div.style.width = "300px"
+        div.style.textAlign = "center"
+
+        const newText = document.createTextNode("Hello developer, Created by Dom.")
+        div.appendChild(newText);
+        container.appendChild(div)
+        document.body.appendChild(container)
+    }
+    for (let i = 0; i < 5; i++) {
+        createDiv()
+    }
+
+</script>
+
+</html>

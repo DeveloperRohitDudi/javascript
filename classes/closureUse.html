@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>closure Real Use</title>
 </head>
 
 <body>
@@ -13,10 +13,8 @@
         <button id="green">Green</button>
         <button id="purple">purple</button>
     </div>
-
 </body>
 <script>
-
     function changeColor(color) {
         return function () {
             document.body.style.backgroundColor = `${color}`;
